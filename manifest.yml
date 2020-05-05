@@ -1,0 +1,10 @@
+applications:
+- name: retailbanking_ci
+  disk_quota: 1G
+  instances: 2
+  memory: 1G
+  routes:
+  - route: abbank.apps.pas-useast1.gcp-wipro.com
+  services:
+  - saving_acc_db_mysql
+  path: ./target/account-1.0.0.jar
