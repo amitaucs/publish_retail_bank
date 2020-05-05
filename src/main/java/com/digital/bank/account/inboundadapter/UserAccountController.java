@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/retailbanking")
+@RequestMapping("/account")
 public class UserAccountController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class UserAccountController {
 
         CreateAccountResponse createAccountResponse = userAccountService.createUserAccount(userAccountVO);
         if(null != createAccountResponse.getUserAccountVO()){
-            return ResponseEntity.status(HttpStatus.OK).body(createAccountResponse);
+            return ResponseEntity.ok().body(createAccountResponse);
         }else{
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(createAccountResponse);
         }
@@ -39,7 +39,7 @@ public class UserAccountController {
 
         Optional<List<CreateAccountResponse>> createAccountResponseDtoList = userAccountService.fetchAllUserAccount();
         if(createAccountResponseDtoList.isPresent()){
-            return ResponseEntity.status(HttpStatus.OK).body(createAccountResponseDtoList.get());
+            return ResponseEntity.ok().body(createAccountResponseDtoList.get());
         }else{
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
