@@ -1,7 +1,7 @@
 server:
-  port: 8002
+  port: 8001
   servlet:
-    context-path: /digi/retailbank/v1
+    context-path: /digi/retailbank/v1/
 
 spring:
   application:
@@ -10,3 +10,5 @@ spring:
     client:
       serviceUrl:
         defaultZone: http://localhost:8761/eureka
+  profiles:
+    active: dev
